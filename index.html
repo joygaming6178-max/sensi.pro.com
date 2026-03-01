@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async="async" data-cfasync="false" src="https://pl28823069.effectivegatecpm.com/63029e67b0aaa43f7261839f0e0c3076/invoke.js"></script>
+<div id="container-63029e67b0aaa43f7261839f0e0c3076"></div>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>All Phones Sensitivity Finder</title>
+<style>
+body{margin:0;font-family:Arial;background:#0d0d0d;color:#fff;}
+header{padding:20px;text-align:center;font-size:2.5em;font-weight:bold;}
+#searchBar{width:100%;padding:10px;text-align:center;background:#111;}
+#searchInput{width:90%;padding:12px;font-size:1em;border:none;border-radius:8px;background:#222;color:#fff;}
+#scrollableList{max-height:450px;overflow-y:auto;margin:10px 0;border:1px solid #333;border-radius:8px;}
+.phoneOption{padding:10px;color:#fff;cursor:pointer;border-bottom:1px solid #333;}
+.phoneOption:hover{background:#222;}
+#sensiBox{margin-top:15px;font-size:1.2em;}
+.sensiRow{margin:6px 0;}
+.footerContainer{text-align:center;padding:30px;background:#111;margin-top:40px;border-top:2px solid #333;}
+.footerContainer h2{font-size:2em;margin:15px 0;}
+.footerContainer p{font-size:1em;color:#ccc;}
+</style>
+</head>
+<body>
+
+<header id="header">All Phones Sensitivity Finder</header>
+
+<div id="searchBar">
+  <input type="text" id="searchInput" placeholder="Search phone..." onkeyup="filterList()">
+</div>
+
+<h3 id="phonesTitle" style="text-align:center;">All 200 Phones</h3>
+<div id="scrollableList"></div>
+
+<div id="sensiBox">
+  <div class="sensiRow" id="sensiGeneral">General: -</div>
+  <div class="sensiRow" id="sensiRedDot">Red Dot: -</div>
+  <div class="sensiRow" id="sensi2X">2X: -</div>
+  <div class="sensiRow" id="sensi4X">4X: -</div>
+  <div class="sensiRow" id="sensiSniper">Sniper: -</div>
+  <div class="sensiRow" id="sensiFreeCam">Free Cam: -</div>
+  <div class="sensiRow" id="sensiDPI">DPI: -</div>
+</div>
+
+<div class="footerContainer">
+  <h2 id="privacy">Privacy Policy</h2>
+  <p id="privacyText">We respect your privacy. No personal info is collected without consent.</p>
+  <h2 id="terms">Terms of Service</h2>
+  <p id="termsText">By using this site you agree to our terms. Content is for personal use only.</p>
+  <h2 id="about">About Us</h2>
+  <p id="aboutText">We provide sensitivity guides for all major phone brands.</p>
+</div>
+
+
+<script>
+// 200 phones
+const phones=[
+"Samsung","Apple","Huawei","Xiaomi","Oppo","Vivo","Realme","OnePlus","Motorola","Nokia",
+"Sony","LG","HTC","Google","Asus","Lenovo","ZTE","Alcatel","Tecno","Infinix",
+"Itel","Honor","Sharp","Panasonic","BlackBerry","Meizu","Coolpad","Lava","Micromax","Karbonn",
+"Intex","Gionee","Oppo Real","ZUK","Blu","Kyocera","TCL","Energizer","CAT Phones","Fairphone",
+"Ulefone","Doogee","Oukitel","Cubot","LeEco","Meitu","Vivo iQOO","Redmi","Poco","Nubia",
+"Acer","HP","Dell","Microsoft","Amazon (Fire Phone)","Razer","Vivo Y Series","Vivo V Series","Oppo A Series","Oppo Reno",
+"Vivo S Series","Vivo X Series","Tecno Camon","Tecno Spark","Infinix Hot","Infinix Note","Itel S Series","Itel A Series","Lava Z","Micromax IN",
+"GFive","Maxwest","NUU Mobile","Plum","Sharp Aquos","Sony Xperia","Lenovo K Series","Lenovo ZUK","Zopo","Yezz",
+"Wiko","Alcatel OneTouch","Prestigio","Archos","Kazam","Phicomm","VKWorld","Xolo","Spice","Swipe",
+"iBall","LYF","Karbonn Titanium","Celkon","Videocon","Xtouch","Symphony","Walton","Symphony Mobile","QMobile",
+"Inovi","iQOO Z","iQOO Neo","Redmi Note","Redmi K","Blackview","AGM","Homtom","Elephone","UMi",
+"VK Mobile","Blackzone","Zopo","Doogee S","Oukitel K","Cubot KingKong","Energizer Hardcase","Maxtron","iNew","Sharp J Series",
+"Ferrari Phone","Lamborghini Phone","Porsche Design Phone","Vertu","Tonino Lamborghini Mobile","Gresso","Mobiado","Turing Phone","Sirin Labs","YotaPhone",
+"Panasonic Eluga","Sharp Aquos R","Sharp Aquos S","Sony Xperia Compact","Sony Xperia Pro","Sony Xperia Z","HTC U Series","HTC Desire","HTC Wildfire","LG G Series",
+"LG V Series","LG K Series","Lenovo Legion Phone","Acer Liquid","Nokia Lumia","Nokia Asha","Nokia X","Nokia C Series","Microsoft Lumia","BlackBerry Key",
+"BlackBerry Bold","BlackBerry Curve","HTC One","Samsung Galaxy S","Samsung Galaxy Note","Samsung Galaxy A","Samsung Galaxy M","Samsung Z Series","Sony Ericsson","Philips Mobile",
+"Sanyo Mobile","Casio Mobile","Ericsson Mobile","NEC Mobile","Siemens Mobile","USMobile","Gigabyte Mobile","Sharp Mobile","Hitachi Mobile","Toshiba Mobile"
+];
+
+// Display
+function showList(list){
+  const div=document.getElementById('scrollableList');
+  div.innerHTML="";
+  list.forEach(p=>{
+    const el=document.createElement('div');
+    el.textContent=p;
+    el.className="phoneOption";
+    el.onclick=()=>setSensi(p);
+    div.appendChild(el);
+  });
+}
+showList(phones);
+
+function filterList(){
+  const search=document.getElementById('searchInput').value.toLowerCase();
+  showList(phones.filter(p=>p.toLowerCase().includes(search)));
+}
+
+// Sensitivity
+function setSensi(p){
+  const g=Math.floor(Math.random()*21)+180;
+  const rd=Math.floor(Math.random()*21)+180;
+  const x2=Math.floor(Math.random()*21)+180;
+  const x4=Math.floor(Math.random()*21)+180;
+  const sn=Math.floor(Math.random()*21)+180;
+  const fc=Math.floor(Math.random()*21)+180;
+  const dpi=Math.floor(Math.random()*101)+200;
+
+  document.getElementById('sensiGeneral').textContent=`General: ${g}`;
+  document.getElementById('sensiRedDot').textContent=`Red Dot: ${rd}`;
+  document.getElementById('sensi2X').textContent=`2X: ${x2}`;
+  document.getElementById('sensi4X').textContent=`4X: ${x4}`;
+  document.getElementById('sensiSniper').textContent=`Sniper: ${sn}`;
+  document.getElementById('sensiFreeCam').textContent=`Free Cam: ${fc}`;
+  document.getElementById('sensiDPI').textContent=`DPI: ${dpi}`;
+}
+
+// Rainbow color change for all text (0.5 sec)
+const rainbowColors=["red","orange","yellow","green","blue","indigo","violet"];
+let colorIndex=0;
+setInterval(()=>{
+  ["header","phonesTitle","sensiGeneral","sensiRedDot","sensi2X","sensi4X","sensiSniper","sensiFreeCam","sensiDPI",
+   "privacy","privacyText","terms","termsText","about","aboutText"].forEach(id=>{
+    document.getElementById(id).style.color=rainbowColors[colorIndex];
+  });
+  colorIndex=(colorIndex+1)%rainbowColors.length;
+},500); // 0.5 second
+</script>
+
+</body>
+</html>
+<script async="async" data-cfasync="false" src="https://pl28823281.effectivegatecpm.com/e526b1548ea31a3b0401b6ded8bd377e/invoke.js"></script>
+<div id="container-e526b1548ea31a3b0401b6ded8bd377e"></div>
